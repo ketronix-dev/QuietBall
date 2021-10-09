@@ -10,17 +10,18 @@ public class MenuContr : MonoBehaviour
 	{
 		panel.SetActive(true);
 	}
-    public void NextsLevel(GameObject panelout)
+    public void NextsLevel(ScreenFade fade)
     {
-	    panelout.SetActive(true);
+	    fade.fadeOut();
 	    Invoke("UpLevel",1);
     }
 	void UpLevel()
     {
 	    SceneManager.LoadScene(1);
     }
-	public void Quit()
+	public void Quit(ScreenFade fade)
 	{
+		fade.fadeOut();
 		Invoke("QuitScreen",1);
 	}
 	void QuitScreen()

@@ -5,21 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-    public GameObject PanelIn;
-    public GameObject PanelOut;
-    private int scount;
+    [SerializeField] private ScreenFade fade;
+    [SerializeField] private GameObject GameOver;
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
-            PanelIn.SetActive(false);
-            PanelOut.SetActive(true);
-            Invoke("UpLevel",1);
+            fade.fadeOut();
+            GameOver.SetActive(true);
         }
     }
 
-    void UpLevel()
+    public void UpLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

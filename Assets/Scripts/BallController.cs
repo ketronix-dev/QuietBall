@@ -17,7 +17,7 @@ public class BallController : MonoBehaviour
     private void Awake()
     {
         // Set up the reference.
-        ball = GetComponent<Ball>();
+        ball = this.GetComponent<Ball>();
 
 
         // get the transform of the main camera

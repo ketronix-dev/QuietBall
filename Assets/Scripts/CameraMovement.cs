@@ -47,8 +47,20 @@ public class CameraMovement : MonoBehaviour {
 
 	void Update () {
 		if (target) {
-			x += ((joystick.direction.x * Time.deltaTime) * PlayerPrefs.GetFloat("Sen"))* xSpeed;
-			y -= ((joystick.direction.y * Time.deltaTime) * PlayerPrefs.GetFloat("Sen"))* ySpeed;
+
+			if(PlayerPrefs.GetFloat("Sen") > 0)
+			{
+				x += ((joystick.direction.x * Time.deltaTime) * PlayerPrefs.GetFloat("Sen"))* xSpeed;
+				y -= ((joystick.direction.y * Time.deltaTime) * PlayerPrefs.GetFloat("Sen"))* ySpeed;
+			}
+			else if (PlayerPrefs.GetFloat("Sen") <= 0)
+			{
+				x += ((joystick.direction.x * Time.deltaTime) * 1)* xSpeed;
+				y -= ((joystick.direction.y * Time.deltaTime) * 1)* ySpeed;
+			}
+
+			// x += ((joystick.direction.x * Time.deltaTime) * PlayerPrefs.GetFloat("Sen"))* xSpeed;
+			// y -= ((joystick.direction.y * Time.deltaTime) * PlayerPrefs.GetFloat("Sen"))* ySpeed;
 			rotation = Quaternion.Euler (y, x, 0);
 
 			if (distance < distanceMax) {

@@ -68,3 +68,13 @@ Update Mode: mergeDefaultDependencies
 
 The following packages were added:
   com.unity.render-pipelines.universal@7.3.1
+
+=== Sun Oct 10 10:48:47 2021
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.collab-proxy from version 1.8.0 to 1.10.2
+  com.unity.ide.vscode from version 1.2.3 to 1.2.4
+  com.unity.test-framework from version 1.1.27 to 1.1.29
